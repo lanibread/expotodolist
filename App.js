@@ -33,7 +33,7 @@ export default function App() {
       title={
         <Text style={
           item.completed
-            ? { textDecorationLine: 'line-through', textDecorationStyle: 'solid', marginLeft: 10, color: '#D5F1FF' }
+            ? { textDecorationLine: 'line-through', textDecorationStyle: 'solid', marginLeft: 10, color: '#F1D5FF' }
             : { marginLeft: 10 }
         }>
           {item.description}
