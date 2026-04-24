@@ -73,8 +73,9 @@ export default function App() {
     backgroundColor: '#a3cebc',
     paddingTop: 20,
   },
-  header: {
+  h4: {
     textAlign: 'center',
+    fontFamily:'Yoster Island Regular';
     marginVertical: 10,
   },
   inputContainer: {
