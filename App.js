@@ -14,8 +14,31 @@ export default function App() {
     if (inputText.trim().length > 0) {
       const newTask = {
         key: Math.random().toString(),
-  );
-}
+        description: inputText,
+        completed: false,
+      };
+      setTasks([...tasks, newTask]);
+      setInputText('');
+    }
+  };
+
+  const toggleTask = (key) => {
+    setTasks(tasks.map(task =>
+      task.key === key ? { ...task, completed: !task.completed } : task
+    ));
+  };
+
+  const renderItem = ({ item }) => (
+    <CheckBox
+      title={
+        <Text style={
+          item.completed
+            ? { textDecorationLine: 'line-through', textDecorationStyle: 'solid', marginLeft: 10, color: 'gray' }
+            : { marginLeft: 10 }
+        }>
+          {item.description}
+        </Text>
+      }
 
 const styles = StyleSheet.create({
   container: {
