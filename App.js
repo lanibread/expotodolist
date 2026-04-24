@@ -39,12 +39,48 @@ export default function App() {
           {item.description}
         </Text>
       }
+      checked={item.completed}
+      onPress={() => toggleTask(item.key)}
+    />
+  );
+  
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text h4 style={styles.header}>My Tasks</Text>
 
-const styles = StyleSheet.create({
+    <View style={styles.inputContainer}>
+      <Input
+        placeholder="New Task..."
+        value={inputText}
+        onChangeText={setInputText}
+        containerStyle={{ flex: 1 }}
+      />
+      <Button title="Add" onPress={addTask} />
+    </View>
+
+      <FlatList
+        data={tasks}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.key}
+      />
+    </SafeAreaView>
+  );
+}
+
+  const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    paddingTop: 20,
+  },
+  header: {
+    textAlign: 'center',
+    marginVertical: 10,
+  },
+  inputContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingHorizontal: 10,
+    marginBottom: 10,
   },
 });
